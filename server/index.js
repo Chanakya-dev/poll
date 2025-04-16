@@ -9,7 +9,7 @@ app.use(cors());
 const server = http.createServer(app);
 const io = new Server(server, {
   cors: {
-    origin: "*",
+    origin: "*",  // Make sure to adjust this to your actual frontend URL if needed
     methods: ["GET", "POST"]
   }
 });
@@ -27,6 +27,7 @@ const timestamp = () => new Date().toLocaleTimeString();
 io.on("connection", (socket) => {
   console.log(`[${timestamp()}] ✅ New client connected`);
 
+  // Join Room Handler
   socket.on("joinRoom", ({ roomId, userName, sceneId, options }) => {
     if (!roomId || sceneId === undefined) return;
     socket.join(roomId);
@@ -83,6 +84,7 @@ io.on("connection", (socket) => {
     console.log(`[${timestamp()}] 👤 ${userName || "User"} joined room ${roomId}`);
   });
 
+  // Submit Vote Handler
   socket.on("submitVote", ({ roomId, sceneId, optionIndex }) => {
     if (!roomId || sceneId === undefined || optionIndex === undefined) return;
 
@@ -91,8 +93,12 @@ io.on("connection", (socket) => {
 
     votes[roomId][sceneId][optionIndex]++;
     console.log(`[${timestamp()}] 🗳️ Vote recorded: Room ${roomId}, Scene ${sceneId}, Option ${optionIndex}`);
+
+    // Emit updated vote count to the room
+    io.to(roomId).emit("voteUpdate", votes[roomId][sceneId]);
   });
 
+  // Handle disconnection
   socket.on("disconnect", () => {
     console.log(`[${timestamp()}] ❌ Client disconnected`);
   });
