@@ -1,0 +1,23 @@
+.scenery-container {
+    padding: 20px;
+    text-align: center;
+  }
+  
+  .scenery-heading {
+    font-size: 2rem;
+    margin-bottom: 30px;
+  }
+  
+  .polls-grid {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 20px;
+  }
+  
+  .poll-card-title {
+    font-size: 0.2rem; /* Reduced size */
+    font-weight: 600;
+    margin-top: 10px;
+  }
+  

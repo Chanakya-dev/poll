@@ -1,0 +1,28 @@
+/* components/PollCard.css */
+.poll-card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  cursor: pointer;
+  margin: 20px;
+  transition: transform 0.3s;
+}
+
+.poll-card:hover {
+  transform: scale(1.05);
+}
+
+.poll-image {
+  width: 150px;
+  height: 150px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 3px solid #444;
+}
+
+.poll-title {
+  margin-top: 10px;
+  font-weight: bold;
+  color: #222;
+  text-align: center;
+}
