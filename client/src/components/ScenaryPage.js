@@ -19,6 +19,36 @@ const polls = [
     image: "/Disaster.jpg",
     scene: "disaster", // updated from room to scene
   },
+  {
+    title: "Cash Vs UPI",
+    image: "/Cash.jpg",
+    scene: "cashvsupi", // updated from room to scene
+  },
+  {
+    title: "Consistency Vs Motivation",
+    image: "/Focus.jpg",
+    scene: "consvsmot", // updated from room to scene
+  },
+  {
+    title: "Social Media Vs Real Life",
+    image: "/Digital.webp",
+    scene: "socvsrl", // updated from room to scene
+  },
+  {
+    title: "Logic Vs Emotions",
+    image: "/Logic.jpg",
+    scene: "logicvsemotions", // updated from room to scene
+  },
+  {
+    title: "Faith Vs Science",
+    image: "/Faith.png",
+    scene: "faithvsscience", // updated from room to scene
+  },
+  {
+    title: "Freedom Vs Security",
+    image: "/freedom.webp",
+    scene: "freedomvssecurity", // updated from room to scene
+  },
 ];
 
 const SceneryPage = () => {
