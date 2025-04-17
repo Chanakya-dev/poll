@@ -159,7 +159,7 @@ const PollRoom = () => {
       )}
 
       <button className="back-button" onClick={() => navigate("/")}>
-        Back to Scenery Page
+        Back to Login
       </button>
     </div>
   );

@@ -1,5 +1,5 @@
 .scenery-container {
-  padding: 20px;
+  padding: 10px;
   text-align: center;
   font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
   min-height: 100vh;
@@ -7,6 +7,7 @@
   display: flex;
   flex-direction: column;
   align-items: center;
+  box-sizing: border-box;
 }
 
 .scenery-heading {
@@ -18,21 +19,24 @@
 
 .polls-grid {
   display: grid;
-  grid-template-columns: repeat(3, 1fr); /* 3 containers per row */
+  grid-template-columns: repeat(3, 1fr); /* Default: 3 cards per row */
   gap: 20px;
   width: 100%;
   max-width: 1200px;
   padding: 10px;
+  box-sizing: border-box;
 }
 
 .poll-card {
   padding: 20px;
   border-radius: 15px;
+
   transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
 .poll-card:hover {
   transform: translateY(-5px);
+
 }
 
 .poll-card-title {
@@ -40,4 +44,27 @@
   font-weight: 600;
   margin-top: 10px;
   color: #333;
+}
+
+/* Tablet and mobile devices: show 2 cards per row */
+@media (max-width: 768px) {
+  .polls-grid {
+    grid-template-columns: repeat(2, 1fr);
+    overflow-x: hidden;
+  }
+}
+
+/* Optional: Very small screens (e.g., phones) show 1 card per row */
+@media (max-width: 480px) {
+  .polls-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .scenery-heading {
+    font-size: 2rem;
+  }
+
+  .poll-card-title {
+    font-size: 1rem;
+  }
 }
